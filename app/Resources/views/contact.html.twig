@@ -1,0 +1,122 @@
+{# app/Resources/views/courses.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Contact{% endblock %}</title>
+    {% stylesheets 'bundles/framework/template/layout/styles/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% image 'bundles/framework/template/images/demo/backgrounds/*' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endimage %}
+
+    {% image 'bundles/framework/template/images/demo/gallery/*' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endimage %}
+
+    {% javascripts 'bundles/framework/template/layout/scripts/*' %}
+    <link rel="script" href="{{ asset_url }}" />
+    {% endjavascripts %}
+</head>
+<body>
+<div class="wrapper row1">
+    <header id="header" class="clear">
+        <div id="logo" class="fl_left">
+            <h1><a href="index.html">Taalcursus</a></h1>
+        </div>
+        {% block sidebar %}
+            <nav id="mainav" class="fl_right">
+                <ul class="clear">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/courses">Courses</a></li>
+                    <li class="active"><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        {% endblock %}
+    </header>
+</div>
+
+    <main class="container clear">
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+
+
+        <div class="clear">
+            <form action="/my-handling-form-page" method="post">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="user_name" />
+                </div>
+                <div>
+                    <label for="mail">E-mail:</label>
+                    <input type="email" id="mail" name="user_mail" />
+                </div>
+                <div>
+                    <label for="msg">Message:</label>
+                    <textarea id="msg" name="user_message"></textarea>
+                </div>
+                <button>
+                    Send
+                </button>
+            </form>
+            <div class="wrapper row3">
+
+            </div>
+    </main>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+    <footer id="footer" class="clear">
+        <!-- ################################################################################################ -->
+        <div class="one_half first">
+            <h6 class="title">Lorem ipsum dolor</h6>
+            <p class="nospace btmspace-30">Donec sed ultrices eros. Nulla facilisi. Aliquam purus urna, porta non faucibus nec, luctus vitae ante. Suspendisse potenti. Morbi sollicitudin viverra urna, vel auctor purus volutpat vel.</p>
+            <ul class="nospace">
+                <li class="btmspace-10">
+                    <address>
+                        <span class="fa fa-map-marker"></span> Street Name &amp; Number, Town, Postcode/Zip
+                    </address>
+                </li>
+                <li class="btmspace-10"><span class="fa fa-phone"></span> +00 (123) 456 7890</li>
+                <li><span class="fa fa-envelope-o"></span> info@domain.com</li>
+            </ul>
+        </div>
+        <div class="one_quarter">
+            <h6 class="title">Keep in Touch</h6>
+            <form class="btmspace-50" method="post" action="#">
+                <fieldset>
+                    <legend>Newsletter:</legend>
+                    <input class="btmspace-15" type="text" value="" placeholder="Email">
+                    <button type="submit" value="submit">Submit</button>
+                </fieldset>
+            </form>
+            <ul class="faico clear">
+                <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="faicon-pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
+            </ul>
+        </div>
+        <!-- ################################################################################################ -->
+    </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row6">
+    <div id="copyright" class="clear">
+        <!-- ################################################################################################ -->
+        <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">Domain Name</a></p>
+        <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+        <!-- ################################################################################################ -->
+    </div>
+</div>
+</body>
+</html>

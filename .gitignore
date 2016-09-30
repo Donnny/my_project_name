@@ -50,9 +50,3 @@
 
 # Backup entities generated with doctrine:generate:entities command
 */Entity/*~
-
-### Symfony Patch ###
-/web/bundles/
-/web/uploads/
-/web/css/
-/web/js/

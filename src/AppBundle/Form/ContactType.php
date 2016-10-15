@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AboutType extends AbstractType
+class ContactType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,10 +15,10 @@ class AboutType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('kopTitle')
-            ->add('headTitle')
-            ->add('shortDesc')
-            ->add('createdAt', 'date')
+            ->add('naam')
+            ->add('achternaam')
+            ->add('email')
+            ->add('commentaar')
         ;
     }
     
@@ -28,7 +28,7 @@ class AboutType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\About'
+            'data_class' => 'AppBundle\Entity\Contact'
         ));
     }
 }

@@ -1,9 +1,9 @@
-{# app/Resources/views/index.html.twig #}
+{# app/Resources/views/courses.html.twig #}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}Home{% endblock %}</title>
+    <title>{% block title %}Courses{% endblock %}</title>
     {% stylesheets 'bundles/framework/template/layout/styles/*' filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -17,7 +17,7 @@
     {% endimage %}
 
     {% javascripts 'bundles/framework/template/layout/scripts/*' %}
-    <link rel="javascript" href="{{ asset_url }}" />
+    <link rel="script" href="{{ asset_url }}" />
     {% endjavascripts %}
 </head>
 <body>
@@ -29,9 +29,9 @@
         {% block sidebar %}
             <nav id="mainav" class="fl_right">
                 <ul class="clear">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="{{ path('about_index') }}">About</a></li>
-                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li class="active"><a href="/courses">Courses</a></li>
                     <li><a href="/contact">Contact</a></li>
                     {% if app.user %}
                         <li><a href="/logout">Logout</a></li>
@@ -43,49 +43,48 @@
         {% endblock %}
     </header>
 </div>
+
 <div class="wrapper row2 bgded" style="background-image:url('images/demo/backgrounds/1.png');">
     <div class="overlay">
         <div id="intro" class="clear">
-            <article class="one_third first">
-                <h3 class="heading">Quisque vehicula urna amet</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
-            </article>
+
             <article class="one_third">
                 <h3 class="heading">Aliquam purus urna porta faucibus</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
+                <ul class="nospace">{% block body %}
+                        <h1>Course</h1>
+
+                        <table>
+                            <tbody>
+                            <tr>
+
+                                <td>{{ course.id }}</td>
+                            </tr>
+                            <tr>
+
+                                <td>{{ course.name }}</td>
+                            </tr>
+                            <tr>
+
+                                <td>{{ course.description }}</td>
+                            </tr>
+                            <tr>
+
+                                <td>{{ course.price }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                                <a href="{{ path('course_index') }}">Terug naar de cursussen</a>
+
+                    {% endblock %}
+
             </article>
-            <article class="one_third">
-                <h3 class="heading">Proin ultricies dui leo egestas augue</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
-            </article>
+
             <!-- ################################################################################################ -->
         </div>
     </div>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row3">
     <main class="container clear">
         <!-- main body -->
@@ -152,46 +151,54 @@
         <!-- ################################################################################################ -->
         <!-- / main body -->
         <div class="clear"></div>
-    </main>
-</div>
+    </main></div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row4">
-    <section id="cta" class="clear">
-        <!-- ################################################################################################ -->
-        <div class="center btmspace-50">
-            <h2 class="nospace">Donec facilisis volutpat ligula nec egestas.</h2>
-            <p class="nospace">Integer varius enim id augue faucibus mattis. Pellentesque scelerisque nibh eu mi convallis, ac feugiat nulla tincidunt.</p>
-        </div>
-        <div class="group">
-            <div class="colour-1 one_half first">
-                <article class="group colour-1">
-                    <!-- ################################################################################################ -->
-                    <div class="one_half first"><img src="images/demo/320x220.gif" alt=""></div>
-                    <div class="one_half">
-                        <h6 class="heading">Quisque vehicula urna sit amet pulvinar dapibus</h6>
-                        <p class="link"><a class="btn" href="#">Read More &raquo;</a></p>
-                    </div>
-                    <!-- ################################################################################################ -->
-                </article>
-            </div>
-            <div class="colour-2 one_half">
-                <article class="group colour-2">
-                    <!-- ################################################################################################ -->
-                    <div class="one_half first"><img src="images/demo/320x220.gif" alt=""></div>
-                    <div class="one_half">
-                        <h6 class="heading">Integer varius enim id augue faucibus mattis.</h6>
-                        <p class="link"><a class="btn" href="#">Read More &raquo;</a></p>
-                    </div>
-                    <!-- ################################################################################################ -->
-                </article>
-            </div>
-        </div>
-        <!-- ################################################################################################ -->
-        <div class="clear"></div>
-    </section>
-</div>
+{#<div class="wrapper row2 bgded" style="background-image:url('images/demo/backgrounds/1.png');">#}
+{#<div class="overlay">#}
+{#<div id="intro" class="clear">#}
+{#<article class="one_third first">#}
+{#<h3 class="heading">Quisque vehicula urna amet</h3>#}
+{#<ul class="nospace">#}
+{#<li>ullamcorper mauris sit amet</li>#}
+{#<li>sed eget ultricies sem</li>#}
+{#<li>proin quis lacus egestas</li>#}
+{#<li>adipis cing ornare</li>#}
+{#<li>donec luctus convallis rhoncus</li>#}
+{#</ul>#}
+{#<p class="link"><a href="#">Read More &raquo;</a></p>#}
+{#</article>#}
+{#<article class="one_third">#}
+{#<h3 class="heading">Aliquam purus urna porta faucibus</h3>#}
+{#<ul class="nospace">#}
+{#<li>ullamcorper mauris sit amet</li>#}
+{#<li>sed eget ultricies sem</li>#}
+{#<li>proin quis lacus egestas</li>#}
+{#<li>adipis cing ornare</li>#}
+{#<li>donec luctus convallis rhoncus</li>#}
+{#</ul>#}
+{#<p class="link"><a href="#">Read More &raquo;</a></p>#}
+{#</article>#}
+{#<article class="one_third">#}
+{#<h3 class="heading">Proin ultricies dui leo egestas augue</h3>#}
+{#<ul class="nospace">#}
+{#<li>ullamcorper mauris sit amet</li>#}
+{#<li>sed eget ultricies sem</li>#}
+{#<li>proin quis lacus egestas</li>#}
+{#<li>adipis cing ornare</li>#}
+{#<li>donec luctus convallis rhoncus</li>#}
+{#</ul>#}
+{#<p class="link"><a href="#">Read More &raquo;</a></p>#}
+{#</article>#}
+{#<!-- ################################################################################################ -->#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->

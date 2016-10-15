@@ -38,7 +38,7 @@ class About
     /**
      * @var string
      *
-     * @ORM\Column(name="shortDesc", type="string", length=255)
+     * @ORM\Column(name="shortDesc", type="text", length=255)
      */
     private $shortDesc;
 

@@ -1,9 +1,9 @@
-{# app/Resources/views/index.html.twig #}
+{# app/Resources/views/courses.html.twig #}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}Home{% endblock %}</title>
+    <title>{% block title %}About{% endblock %}</title>
     {% stylesheets 'bundles/framework/template/layout/styles/*' filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -17,7 +17,7 @@
     {% endimage %}
 
     {% javascripts 'bundles/framework/template/layout/scripts/*' %}
-    <link rel="javascript" href="{{ asset_url }}" />
+    <link rel="script" href="{{ asset_url }}" />
     {% endjavascripts %}
 </head>
 <body>
@@ -29,9 +29,9 @@
         {% block sidebar %}
             <nav id="mainav" class="fl_right">
                 <ul class="clear">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="{{ path('about_index') }}">About</a></li>
-                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="{{ path('about_index') }}">About</a></li>
+                    <li><a href="{{ path('course_index') }}">Courses</a></li>
                     <li><a href="/contact">Contact</a></li>
                     {% if app.user %}
                         <li><a href="/logout">Logout</a></li>
@@ -43,46 +43,6 @@
         {% endblock %}
     </header>
 </div>
-<div class="wrapper row2 bgded" style="background-image:url('images/demo/backgrounds/1.png');">
-    <div class="overlay">
-        <div id="intro" class="clear">
-            <article class="one_third first">
-                <h3 class="heading">Quisque vehicula urna amet</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
-            </article>
-            <article class="one_third">
-                <h3 class="heading">Aliquam purus urna porta faucibus</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
-            </article>
-            <article class="one_third">
-                <h3 class="heading">Proin ultricies dui leo egestas augue</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
-            </article>
-            <!-- ################################################################################################ -->
-        </div>
-    </div>
-</div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -92,7 +52,8 @@
         <!-- ################################################################################################ -->
         <div class="group">
             <div class="one_half first">
-                <h2 class="heading btmspace-50">Maecenas libero nunc eu erat</h2>
+                {% for about in abouts %}
+                <h2 class="heading btmspace-50">{{ about.headTitle }}</h2>
                 <figure id="featuredpost"><img src="images/demo/featured.png" alt="">
                     <figcaption>
                         <h2 class="heading">Urna sit amet pulvinar</h2>
@@ -102,51 +63,53 @@
                 </figure>
             </div>
             <div class="one_half">
-                <h2 class="heading btmspace-50">Etiam eros nulla posuere</h2>
-                <ul id="latestposts" class="nospace">
-                    <li class="clear">
-                        <figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>
-                        <article class="three_quarter">
-                            <h2 class="heading">Phasellus massa felis in</h2>
-                            <div class="meta">
-                                <address>
-                                    By <a href="#">A Name</a>
-                                </address>
-                                <time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>
-                            </div>
-                            <p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>
-                            <p class="link"><a class="btn" href="#">Read More &raquo;</a></p>
-                        </article>
-                    </li>
-                    <li class="clear">
-                        <figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>
-                        <article class="three_quarter">
-                            <h2 class="heading">Morbi consectetur nisi</h2>
-                            <div class="meta">
-                                <address>
-                                    By <a href="#">A Name</a>
-                                </address>
-                                <time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>
-                            </div>
-                            <p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>
-                            <p class="link"><a class="btn" href="#">Read More &raquo;</a></p>
-                        </article>
-                    </li>
-                    <li class="clear">
-                        <figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>
-                        <article class="three_quarter">
-                            <h2 class="heading">Proin ultri feugiat vitae</h2>
-                            <div class="meta">
-                                <address>
-                                    By <a href="#">A Name</a>
-                                </address>
-                                <time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>
-                            </div>
-                            <p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>
-                            <p class="link"><a class="btn" href="#">Read More &raquo;</a></p>
-                        </article>
-                    </li>
-                </ul>
+                    <ul id="latestposts" class="nospace">
+
+                            <li class="clear">
+                                <figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>
+                                <article class="three_quarter">
+                                    {{ about.headTitle }}
+                                    <div class="meta">
+                                        <time>{{ about.createdAt|date('Y-m-d') }}</time>
+                                    </div>
+                                    <p class="shortintro">{{ about.shortDesc }}</p>
+                                    <p class="link"><a href="{{ path('about_edit', { 'id': 1 }) }}">edit about</a> </p>
+                                </article>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {#<h2 class="heading btmspace-50">Etiam eros nulla posuere</h2>#}
+
+
+                    {#<li class="clear">#}
+                    {#<figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>#}
+                    {#<article class="three_quarter">#}
+                    {#<h2 class="heading">Morbi consectetur nisi</h2>#}
+                    {#<div class="meta">#}
+                    {#<address>#}
+                    {#By <a href="#">A Name</a>#}
+                    {#</address>#}
+                    {#<time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>#}
+                    {#</div>#}
+                    {#<p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>#}
+                    {#<p class="link"><a class="btn" href="#">Read More &raquo;</a></p>#}
+                    {#</article>#}
+                    {#</li>#}
+                    {#<li class="clear">#}
+                    {#<figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>#}
+                    {#<article class="three_quarter">#}
+                    {#<h2 class="heading">Proin ultri feugiat vitae</h2>#}
+                    {#<div class="meta">#}
+                    {#<address>#}
+                    {#By <a href="#">A Name</a>#}
+                    {#</address>#}
+                    {#<time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>#}
+                    {#</div>#}
+                    {#<p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>#}
+                    {#<p class="link"><a class="btn" href="#">Read More &raquo;</a></p>#}
+                    {#</article>#}
+                    {#</li>#}
+                    {#</ul>#}
             </div>
         </div>
         <!-- ################################################################################################ -->

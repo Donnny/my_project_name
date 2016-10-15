@@ -43,20 +43,35 @@
         {% endblock %}
     </header>
 </div>
+{% if app.user %}
+{% for formCourse in formArray %}
+    {{ form_start(formCourse) }}
+    {{ form_row(formCourse.name) }}
+    {{ form_row(formCourse.description) }}
+    {{ form_row(formCourse.price) }}
+    <button type="submit">Update course</button>
+    {{ form_end(formCourse) }}
+{% endfor %}
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.price) }}
+    <button type="submit">Add course</button>
+    {{ form_end(form) }}
+{% else %}
 <div class="wrapper row2 bgded" style="background-image:url('images/demo/backgrounds/1.png');">
     <div class="overlay">
         <div id="intro" class="clear">
+            {% for course in courseData %}
             <article class="one_third first">
-                <h3 class="heading">Quisque vehicula urna amet</h3>
+                <h3 class="heading">{{ course.name }}</h3>
                 <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
+                    {{ course.description }}
+                    <br>
+                    {{ course.price }}
                 </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
             </article>
+            {% endfor %}
             <article class="one_third">
                 <h3 class="heading">Aliquam purus urna porta faucibus</h3>
                 <ul class="nospace">
@@ -83,49 +98,50 @@
         </div>
     </div>
 </div>
+{% endif %}
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2 bgded" style="background-image:url('images/demo/backgrounds/1.png');">
-    <div class="overlay">
-        <div id="intro" class="clear">
-            <article class="one_third first">
-                <h3 class="heading">Quisque vehicula urna amet</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
-            </article>
-            <article class="one_third">
-                <h3 class="heading">Aliquam purus urna porta faucibus</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
-            </article>
-            <article class="one_third">
-                <h3 class="heading">Proin ultricies dui leo egestas augue</h3>
-                <ul class="nospace">
-                    <li>ullamcorper mauris sit amet</li>
-                    <li>sed eget ultricies sem</li>
-                    <li>proin quis lacus egestas</li>
-                    <li>adipis cing ornare</li>
-                    <li>donec luctus convallis rhoncus</li>
-                </ul>
-                <p class="link"><a href="#">Read More &raquo;</a></p>
-            </article>
-            <!-- ################################################################################################ -->
-        </div>
-    </div>
-</div>
+{#<div class="wrapper row2 bgded" style="background-image:url('images/demo/backgrounds/1.png');">#}
+    {#<div class="overlay">#}
+        {#<div id="intro" class="clear">#}
+            {#<article class="one_third first">#}
+                {#<h3 class="heading">Quisque vehicula urna amet</h3>#}
+                {#<ul class="nospace">#}
+                    {#<li>ullamcorper mauris sit amet</li>#}
+                    {#<li>sed eget ultricies sem</li>#}
+                    {#<li>proin quis lacus egestas</li>#}
+                    {#<li>adipis cing ornare</li>#}
+                    {#<li>donec luctus convallis rhoncus</li>#}
+                {#</ul>#}
+                {#<p class="link"><a href="#">Read More &raquo;</a></p>#}
+            {#</article>#}
+            {#<article class="one_third">#}
+                {#<h3 class="heading">Aliquam purus urna porta faucibus</h3>#}
+                {#<ul class="nospace">#}
+                    {#<li>ullamcorper mauris sit amet</li>#}
+                    {#<li>sed eget ultricies sem</li>#}
+                    {#<li>proin quis lacus egestas</li>#}
+                    {#<li>adipis cing ornare</li>#}
+                    {#<li>donec luctus convallis rhoncus</li>#}
+                {#</ul>#}
+                {#<p class="link"><a href="#">Read More &raquo;</a></p>#}
+            {#</article>#}
+            {#<article class="one_third">#}
+                {#<h3 class="heading">Proin ultricies dui leo egestas augue</h3>#}
+                {#<ul class="nospace">#}
+                    {#<li>ullamcorper mauris sit amet</li>#}
+                    {#<li>sed eget ultricies sem</li>#}
+                    {#<li>proin quis lacus egestas</li>#}
+                    {#<li>adipis cing ornare</li>#}
+                    {#<li>donec luctus convallis rhoncus</li>#}
+                {#</ul>#}
+                {#<p class="link"><a href="#">Read More &raquo;</a></p>#}
+            {#</article>#}
+            {#<!-- ################################################################################################ -->#}
+        {#</div>#}
+    {#</div>#}
+{#</div>#}
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->

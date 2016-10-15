@@ -62,51 +62,61 @@
                 </figure>
             </div>
             <div class="one_half">
-                <h2 class="heading btmspace-50">Etiam eros nulla posuere</h2>
-                <ul id="latestposts" class="nospace">
-                    <li class="clear">
-                        <figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>
-                        <article class="three_quarter">
-                            <h2 class="heading">Phasellus massa felis in</h2>
-                            <div class="meta">
-                                <address>
-                                    By <a href="#">A Name</a>
-                                </address>
-                                <time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>
-                            </div>
-                            <p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>
-                            <p class="link"><a class="btn" href="#">Read More &raquo;</a></p>
-                        </article>
-                    </li>
-                    <li class="clear">
-                        <figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>
-                        <article class="three_quarter">
-                            <h2 class="heading">Morbi consectetur nisi</h2>
-                            <div class="meta">
-                                <address>
-                                    By <a href="#">A Name</a>
-                                </address>
-                                <time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>
-                            </div>
-                            <p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>
-                            <p class="link"><a class="btn" href="#">Read More &raquo;</a></p>
-                        </article>
-                    </li>
-                    <li class="clear">
-                        <figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>
-                        <article class="three_quarter">
-                            <h2 class="heading">Proin ultri feugiat vitae</h2>
-                            <div class="meta">
-                                <address>
-                                    By <a href="#">A Name</a>
-                                </address>
-                                <time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>
-                            </div>
-                            <p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>
-                            <p class="link"><a class="btn" href="#">Read More &raquo;</a></p>
-                        </article>
-                    </li>
-                </ul>
+                {% if app.user %}
+                    {{ form_start(form) }}
+                    {{ form_row(form.kopTitle) }}
+                    {{ form_row(form.headTitle) }}
+                    {{ form_row(form.shortDesc) }}
+                    <button type="submit">Add post</button>
+                    {{ form_end(form) }}
+                {% else %}
+                    <ul id="latestposts" class="nospace">
+                    {% for about in aboutData %}
+                        <li class="clear">
+                            <figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>
+                            <article class="three_quarter">
+                                {{ about.headTitle }}
+                                <div class="meta">
+                                    <time>{{ about.createdAt|date('Y-m-d') }}</time>
+                                </div>
+                                <p class="shortintro">{{ about.shortDesc }}</p>
+                            </article>
+                        </li>
+                    {% endfor %}
+                        </ul>
+                {#<h2 class="heading btmspace-50">Etiam eros nulla posuere</h2>#}
+
+
+                    {#<li class="clear">#}
+                        {#<figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>#}
+                        {#<article class="three_quarter">#}
+                            {#<h2 class="heading">Morbi consectetur nisi</h2>#}
+                            {#<div class="meta">#}
+                                {#<address>#}
+                                    {#By <a href="#">A Name</a>#}
+                                {#</address>#}
+                                {#<time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>#}
+                            {#</div>#}
+                            {#<p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>#}
+                            {#<p class="link"><a class="btn" href="#">Read More &raquo;</a></p>#}
+                        {#</article>#}
+                    {#</li>#}
+                    {#<li class="clear">#}
+                        {#<figure class="one_quarter first"><img class="borderedbox inspace-5" src="images/demo/120x120.gif" alt=""></figure>#}
+                        {#<article class="three_quarter">#}
+                            {#<h2 class="heading">Proin ultri feugiat vitae</h2>#}
+                            {#<div class="meta">#}
+                                {#<address>#}
+                                    {#By <a href="#">A Name</a>#}
+                                {#</address>#}
+                                {#<time datetime="2045-04-06T08:15+00:00">Friday, 6 April 2045</time>#}
+                            {#</div>#}
+                            {#<p class="shortintro">Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.&hellip;</p>#}
+                            {#<p class="link"><a class="btn" href="#">Read More &raquo;</a></p>#}
+                        {#</article>#}
+                    {#</li>#}
+                {#</ul>#}
+                {% endif %}
             </div>
         </div>
         <!-- ################################################################################################ -->

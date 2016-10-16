@@ -5,13 +5,14 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-    <div class="wrapper row2 bgded" style="background-image:url('images/demo/backgrounds/1.png');">
+    <div class="wrapper row2 bgded"></div>
     <div class="overlay">
     <div id="intro" class="clear">
         <!-- main body -->
         <!-- ################################################################################################ -->
-        <div class="group">
-            <div class="one_half first">
+
+
+
 
 
                 {% if error %}
@@ -33,6 +34,8 @@
 
                     <button type="submit">login</button>
                 </form>
+                <p>Of <a href="{{ path('user_registration') }}">Registrer</a></p>
+
                 {#<h2 class="heading btmspace-50">Etiam eros nulla posuere</h2>#}
 
 
@@ -66,7 +69,6 @@
                 {#</li>#}
                 {#</ul>#}
             </div>
-        </div>
         <!-- ################################################################################################ -->
         <!-- / main body -->
         <div class="clear"></div>

@@ -24,20 +24,21 @@
 <div class="wrapper row1">
     <header id="header" class="clear">
         <div id="logo" class="fl_left">
-            <h1><a href="index.html">Taalcursus</a></h1>
+            <h1><a href="index.html">Talencursussen</a></h1>
         </div>
         {% block sidebar %}
         <nav id="mainav" class="fl_right">
             <ul class="clear">
                 <li><a href="{{ path('homepage') }}">Home</a></li>
                 <li><a href="{{ path('about_index') }}">About</a></li>
-                <li><a href="{{ path('course_index') }}">Courses</a></li>
-                <li><a href="{{ path('contact_index') }}">Contact</a></li>
+                <li><a href="{{ path('course_index') }}">Cursussen</a></li>
                 {% if app.user %}
+                    <li><a href="{{ path('user_index') }}">Mijn gegevens</a></li>
                     <li><a href="/logout">Logout</a></li>
                 {% else %}
                     <li><a href="/login">Login</a></li>
                 {% endif %}
+                <li><a href="{{ path('contact_index') }}">Contact</a></li>
             </ul>
         </nav></header>
 </div>
@@ -51,20 +52,20 @@
     <footer id="footer" class="clear">
         <!-- ################################################################################################ -->
         <div class="one_half first">
-            <h6 class="title">Lorem ipsum dolor</h6>
-            <p class="nospace btmspace-30">Donec sed ultrices eros. Nulla facilisi. Aliquam purus urna, porta non faucibus nec, luctus vitae ante. Suspendisse potenti. Morbi sollicitudin viverra urna, vel auctor purus volutpat vel.</p>
+            <h6 class="title">Talencursus</h6>
+            <p class="nospace btmspace-30">De Talencursus heeft geen copyright of andere onzin die ik hier onder moet zetten omdat, dit automatisch al zo geregeld is.</p>
             <ul class="nospace">
                 <li class="btmspace-10">
                     <address>
-                        <span class="fa fa-map-marker"></span> Street Name &amp; Number, Town, Postcode/Zip
+                        <span class="fa fa-map-marker"></span>Adress TalenPlein 6258 ,2749DP Leiden
                     </address>
                 </li>
                 <li class="btmspace-10"><span class="fa fa-phone"></span> +00 (123) 456 7890</li>
-                <li><span class="fa fa-envelope-o"></span> info@domain.com</li>
+                <li><span class="fa fa-envelope-o"></span> info@talencursus.nl</li>
             </ul>
         </div>
         <div class="one_quarter">
-            <h6 class="title">Keep in Touch</h6>
+            <h6 class="title">Nieuwsbrief?</h6>
             <form class="btmspace-50" method="post" action="#">
                 <fieldset>
                     <legend>Newsletter:</legend>
@@ -72,15 +73,7 @@
                     <button type="submit" value="submit">Submit</button>
                 </fieldset>
             </form>
-            <ul class="faico clear">
-                <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="faicon-pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
-                <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
-            </ul>
+
         </div>
         <!-- ################################################################################################ -->
     </footer>
@@ -91,8 +84,8 @@
     <div class="wrapper row6">
         <div id="copyright" class="clear">
             <!-- ################################################################################################ -->
-            <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">Domain Name</a></p>
-            <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+            <p class="fl_left">NO-Copyright Ⓒ 2016 - All Rights Reserved - <a href="#">Monkeybusiness</a></p>
+
             <!-- ################################################################################################ -->
         </div>
     </div>{% endblock %}{% endblock %}

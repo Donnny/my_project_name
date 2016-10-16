@@ -1,3 +1,4 @@
+{% extends 'base.html.twig' %}
 {% block body %}
 
     <div class="wrapper row2 bgded" style="background-image:url('images/demo/backgrounds/1.png');">
@@ -11,7 +12,7 @@
 
                             <li>{{ course.price }}</li>
                         </ul>
-                        {% if app.user %} <p class="link"><a href="{{ path('course_edit', { 'id': course.id }) }}">edit</a> </p>{% endif %}
+                        {% if is_granted('ROLE_ADMIN') %} <p class="link"><a href="{{ path('course_edit', { 'id': course.id }) }}">edit</a> </p>{% endif %}
                         <p class="link"><a href="{{ path('course_show', { 'id': course.id }) }}">Lees meer</a> </p>
                     </article>
                 {% endfor %}

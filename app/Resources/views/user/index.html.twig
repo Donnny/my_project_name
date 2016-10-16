@@ -3,49 +3,37 @@
 {% block body %}
     <h1>User list</h1>
 
+
+    Zie hieronder uw gegegevens
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+
                 <th>Naam</th>
                 <th>Password</th>
                 <th>Email</th>
                 <th>Telefoon</th>
                 <th>Adres</th>
                 <th>Gemeente</th>
-                <th>Username</th>
-                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
-        {% for user in users %}
+
             <tr>
-                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
-                <td>{{ user.naam }}</td>
+
+                <td>{{ user.username }}</td>
                 <td>{{ user.password }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.telefoon }}</td>
                 <td>{{ user.adres }}</td>
                 <td>{{ user.gemeente }}</td>
-                <td>{{ user.username }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+
             </tr>
-        {% endfor %}
+
+
         </tbody>
     </table>
+    <p><a href="{{path('user_edit', { 'id': user.id }) }}">Gegevens aanpassen</a></p>
 
-    <ul>
-        <li>
-            <a href="{{ path('user_new') }}">Create a new entry</a>
-        </li>
-    </ul>
 {% endblock %}

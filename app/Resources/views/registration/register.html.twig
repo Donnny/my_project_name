@@ -1,9 +1,10 @@
 
+{# app/Resources/views/courses.html.twig #}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}Home{% endblock %}</title>
+    <title>{% block title %}Login{% endblock %}</title>
     {% stylesheets 'bundles/framework/template/layout/styles/*' filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -17,7 +18,7 @@
     {% endimage %}
 
     {% javascripts 'bundles/framework/template/layout/scripts/*' %}
-    <link rel="javascript" href="{{ asset_url }}" />
+    <link rel="script" href="{{ asset_url }}" />
     {% endjavascripts %}
 </head>
 <body>
@@ -27,27 +28,44 @@
             <h1><a href="index.html">Taalcursus</a></h1>
         </div>
         {% block sidebar %}
-        <nav id="mainav" class="fl_right">
-            <ul class="clear">
-                <li><a href="{{ path('homepage') }}">Home</a></li>
-                <li><a href="{{ path('about_index') }}">About</a></li>
-                <li><a href="{{ path('course_index') }}">Courses</a></li>
-                <li><a href="{{ path('contact_index') }}">Contact</a></li>
-                {% if app.user %}
-                    <li><a href="/logout">Logout</a></li>
-                {% else %}
-                    <li><a href="/login">Login</a></li>
-                {% endif %}
-            </ul>
-        </nav></header>
-</div>
-{% block body %}
-
-
-
+            <nav id="mainav" class="fl_right">
+                <ul class="clear">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li class="active"><a href="/contact">Login</a></li>
+                </ul>
+            </nav>
         {% endblock %}
+    </header>
+</div>
 
-</body>{% block footer %}<div class="wrapper row5">
+<main class="container clear">
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+
+
+    <div class="clear">
+        {{ form_start(form) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.telefoon) }}
+        {{ form_row(form.adres) }}
+        {{ form_row(form.gemeente) }}
+        {{ form_row(form.plainPassword.first) }}
+        {{ form_row(form.plainPassword.second) }}
+
+        <button type="submit">Register!</button>
+        {{ form_end(form) }}
+        <div class="wrapper row3">
+
+        </div>
+</main>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
     <footer id="footer" class="clear">
         <!-- ################################################################################################ -->
         <div class="one_half first">
@@ -88,14 +106,13 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-    <div class="wrapper row6">
-        <div id="copyright" class="clear">
-            <!-- ################################################################################################ -->
-            <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">Domain Name</a></p>
-            <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
-            <!-- ################################################################################################ -->
-        </div>
-    </div>{% endblock %}{% endblock %}
-
-{% block javascripts %}{% endblock %}
+<div class="wrapper row6">
+    <div id="copyright" class="clear">
+        <!-- ################################################################################################ -->
+        <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">Domain Name</a></p>
+        <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+        <!-- ################################################################################################ -->
+    </div>
+</div>
+</body>
 </html>

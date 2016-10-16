@@ -1,10 +1,15 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
-
+    access_control:
+            - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/new/, roles: ROLE_ADMIN }
+            - { path: ^/create/, roles: ROLE_ADMIN }
+            - { path: ^/edit, roles: ROLE_ADMIN }
     encoders:
-        AppBundle\Entity\User:
-            algorithm: bcrypt
+        AppBundle\Entity\User: bcrypt
+
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:

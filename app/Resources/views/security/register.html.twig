@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<main class="container clear">
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+
+
+    <div class="clear">
+        {{ form_start(form) }}
+        {{ form_row(form.naam) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.telefoon) }}
+        {{ form_row(form.adres) }}
+        {{ form_row(form.gemeente) }}
+
+        <button type="submit">Register!</button>
+        {{ form_end(form) }}
+        <div class="wrapper row3">
+
+        </div>
+</main>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+{% endblock %}

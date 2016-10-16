@@ -27,9 +27,12 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $users = $em->getRepository('AppBundle:User')->findAll();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+
 
         return $this->render('user/index.html.twig', array(
             'users' => $users,
+            'user'  => $user,
         ));
     }
 
@@ -83,12 +86,17 @@ class UserController extends Controller
      */
     public function editAction(Request $request, User $user)
     {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('AppBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $user = $this->get('security.token_storage')->getToken()->getUser();
             $em = $this->getDoctrine()->getManager();
+            $password = $this->get('security.password_encoder')
+                ->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
             $em->persist($user);
             $em->flush();
 

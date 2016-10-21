@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Factuurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Cursus</th>
+                <th>Bedrag</th>
+                <th>User</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for factuur in factuurs %}
+            <tr>
+                <td><a href="{{ path('factuur_show', { 'id': factuur.id }) }}">{{ factuur.id }}</a></td>
+                <td>{{ factuur.naam }}</td>
+                <td>{{ factuur.cursus }}</td>
+                <td>{{ factuur.bedrag }}</td>
+                <td>{{ factuur.user }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('factuur_show', { 'id': factuur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('factuur_edit', { 'id': factuur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('factuur_new') }}">Create a new factuur</a>
+        </li>
+    </ul>
+{% endblock %}

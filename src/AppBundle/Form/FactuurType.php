@@ -13,7 +13,8 @@ class FactuurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('naam')->add('cursus')->add('bedrag')->add('user')        ;
+        $builder->add('naam')->add('cursus')->add('bedrag')       ;
+
     }
     
     /**

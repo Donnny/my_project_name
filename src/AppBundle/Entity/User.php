@@ -19,6 +19,10 @@ class User implements UserInterface
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    /**
+     * @ORM\OneToMany(targetEntity="Factuur", mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=TRUE)
+     */
+    private $facturen;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
@@ -193,5 +197,6 @@ return null;
     {
         return null;
     }
+
 
 }

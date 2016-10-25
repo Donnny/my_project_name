@@ -6,7 +6,7 @@ security:
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: '/new', roles: ROLE_ADMIN }
             - { path: '/create', roles: ROLE_ADMIN }
-            - { path: '/user/1/edit', roles: ROLE_USER }
+
             - { path: '/edit', roles: ROLE_ADMIN }
 
 

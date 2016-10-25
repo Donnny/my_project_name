@@ -29,6 +29,12 @@ class Factuur
     private $naam;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="facturen")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=FALSE)
+     */
+    protected $user;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="cursus", type="string", length=255)
@@ -42,12 +48,7 @@ class Factuur
      */
     private $bedrag;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="user", type="string", length=255)
-     */
-    private $user;
+
 
 
     /**
@@ -129,26 +130,5 @@ class Factuur
         return $this->bedrag;
     }
 
-    /**
-     * Set user
-     *
-     * @param string $user
-     * @return Factuur
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
 
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return string 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }

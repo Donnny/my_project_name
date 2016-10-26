@@ -22,6 +22,11 @@ class Course
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="Factuur", mappedBy="course", cascade={"persist", "remove"}, orphanRemoval=TRUE)
+     */
+    private $facturen;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)

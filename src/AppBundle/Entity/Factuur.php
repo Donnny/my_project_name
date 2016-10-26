@@ -35,6 +35,11 @@ class Factuur
     protected $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Course", inversedBy="facturen")
+     * @ORM\JoinColumn(name="course_id", referencedColumnName="id", nullable=FALSE)
+     */
+    protected $course;
+    /**
      * @var string
      *
      * @ORM\Column(name="cursus", type="string", length=255)

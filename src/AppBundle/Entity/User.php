@@ -197,6 +197,9 @@ return null;
     {
         return null;
     }
-
+public function __toString()
+{
+    return $this->getUsername();
+}
 
 }

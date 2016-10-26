@@ -30,21 +30,16 @@ class Factuur
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="facturen")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=FALSE)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=TRUE)
      */
-    protected $user;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="Course", inversedBy="facturen")
-     * @ORM\JoinColumn(name="course_id", referencedColumnName="id", nullable=FALSE)
+     * @ORM\JoinColumn(name="course_id", referencedColumnName="id", nullable=TRUE)
      */
-    protected $course;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cursus", type="string", length=255)
-     */
-    private $cursus;
+    private $course;
+
 
     /**
      * @var string
@@ -128,11 +123,58 @@ class Factuur
     /**
      * Get bedrag
      *
-     * @return string 
+     * @return string
      */
     public function getBedrag()
     {
         return $this->bedrag;
+    }
+
+    /**
+     * Set course
+     *
+     * @param string $course
+     * @return Factuur
+     */
+    public function setCourse($course)
+    {
+        $this->course = $course;
+
+        return $this;
+    }
+
+    /**
+     * Get course
+     *
+     * @return string
+     */
+    public function getCourse()
+    {
+        return $this->course;
+    }
+
+
+    /**
+     * Set user
+     *
+     * @param string $course
+     * @return Factuur
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
 

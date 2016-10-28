@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Factuurs list</h1>
+    <h1>Facturen van {{ user.username }}</h1>
 
     <table>
         <thead>
@@ -14,14 +14,18 @@
                 <th>Actions</th>
             </tr>
         </thead>
+
         <tbody>
+
+
         {% for factuur in factuurs %}
+
             <tr>
                 <td><a href="{{ path('factuur_show', { 'id': factuur.id }) }}">{{ factuur.id }}</a></td>
                 <td>{{ factuur.naam }}</td>
-                <td>{{ factuur.cursus }}</td>
-                <td>{{ factuur.bedrag }}</td>
-                <td>{{ factuur.user }}</td>
+                <td>{{ factuur.course.name }}</td>
+                <td>€{{ factuur.course.price }}</td>
+                <td>{{ factuur.user.username }}</td>
                 <td>
                     <ul>
                         <li>

@@ -23,11 +23,17 @@ class FactuurController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $userId = $user->getId();
 
-        $factuurs = $em->getRepository('AppBundle:Factuur')->findAll();
+        $factuurs = $em->getRepository('AppBundle:Factuur')->findBy(array('user'=> $user));
+
+
+
 
         return $this->render('factuur/index.html.twig', array(
             'factuurs' => $factuurs,
+            'user'=>$user,
         ));
     }
 

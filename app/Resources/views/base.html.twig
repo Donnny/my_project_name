@@ -34,6 +34,7 @@
                 <li><a href="{{ path('course_index') }}">Cursussen</a></li>
                 {% if app.user %}
                     <li><a href="{{ path('user_index') }}">Mijn gegevens</a></li>
+                    <li><a href="{{ path('factuur_index') }}">Facturen</a></li>
                     <li><a href="/logout">Logout</a></li>
                 {% else %}
                     <li><a href="/login">Login</a></li>
@@ -90,5 +91,11 @@
         </div>
     </div>{% endblock %}{% endblock %}
 
-{% block javascripts %}{% endblock %}
+
+    {% block javascripts %}
+        {% javascripts 'javascript1.js' 'javascript2.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+
 </html>

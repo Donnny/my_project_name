@@ -17,7 +17,7 @@ class FactuurType extends AbstractType
             'class'=> 'AppBundle\Entity\Course',
             'property'=> 'name'
             ))
-            ->add('bedrag')
+            ->add('naam')
             ->add('user', 'entity', array(
             'class' => 'AppBundle\Entity\User',
             'property' => 'username',

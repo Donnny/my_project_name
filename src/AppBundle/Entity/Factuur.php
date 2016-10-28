@@ -41,15 +41,6 @@ class Factuur
     private $course;
 
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="bedrag", type="string", length=255)
-     */
-    private $bedrag;
-
-
-
 
     /**
      * Get id
@@ -107,28 +98,6 @@ class Factuur
         return $this->cursus;
     }
 
-    /**
-     * Set bedrag
-     *
-     * @param string $bedrag
-     * @return Factuur
-     */
-    public function setBedrag($bedrag)
-    {
-        $this->bedrag = $bedrag;
-
-        return $this;
-    }
-
-    /**
-     * Get bedrag
-     *
-     * @return string
-     */
-    public function getBedrag()
-    {
-        return $this->bedrag;
-    }
 
     /**
      * Set course

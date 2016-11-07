@@ -79,11 +79,11 @@ class Factuur
      * Set cursus
      *
      * @param string $cursus
-     * @return Factuur
+     * @return Course
      */
-    public function setCursus($cursus)
+    public function setCourse($cursus)
     {
-        $this->cursus = $cursus;
+        $this->course = $cursus;
 
         return $this;
     }
@@ -92,30 +92,6 @@ class Factuur
      * Get cursus
      *
      * @return string 
-     */
-    public function getCursus()
-    {
-        return $this->cursus;
-    }
-
-
-    /**
-     * Set course
-     *
-     * @param string $course
-     * @return Factuur
-     */
-    public function setCourse($course)
-    {
-        $this->course = $course;
-
-        return $this;
-    }
-
-    /**
-     * Get course
-     *
-     * @return string
      */
     public function getCourse()
     {
@@ -126,8 +102,8 @@ class Factuur
     /**
      * Set user
      *
-     * @param string $course
-     * @return Factuur
+     * @param string $user
+     * @return User
      */
     public function setUser($user)
     {

@@ -4,9 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Home{% endblock %}</title>
-    {% stylesheets 'bundles/app/css/body.css'
-    'bundles/app/css/exception.css'
-    'bundles/app/css/structure.css'
+    {% stylesheets 'bundles/app/template/layout/styles/*'
     filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}

@@ -6,18 +6,21 @@
     <title>{% block title %}Home{% endblock %}</title>
     {% stylesheets 'bundles/app/template/layout/styles/*'
     filter='cssrewrite' %}
+
+
+
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
 
-    {% image 'bundles/framework/template/images/demo/backgrounds/*' %}
+    {% image 'bundles/app/template/images/demo/backgrounds/*' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endimage %}
 
-    {% image 'bundles/framework/template/images/demo/gallery/*' %}
+    {% image 'bundles/app/template/images/demo/gallery/*' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endimage %}
 
-    {% javascripts 'bundles/framework/template/layout/scripts/*' %}
+    {% javascripts 'bundles/app/template/layout/scripts/*' %}
     <link rel="javascript" href="{{ asset_url }}" />
     {% endjavascripts %}
 </head>

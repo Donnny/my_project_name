@@ -5,27 +5,26 @@
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                {{ dump(factuur) }}
-                <td>{{ factuur.id }}</td>
-            </tr>
-            <tr>
-                <th>Naam</th>
-                <td>{{ factuur.naam }}</td>
-            </tr>
-            <tr>
-                <th>Cursus</th>
-                <td>{{ factuur.course.name }}</td>
-            </tr>
-            <tr>
-                <th>Bedrag</th>
-                <td>{{ factuur.course.price }}</td>
-            </tr>
-            <tr>
-                <th>User</th>
-                <td>{{ factuur.user.username }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ factuur.id }}</td>
+        </tr>
+        <tr>
+            <th>Naam</th>
+            <td>{{ factuur.naam }}</td>
+        </tr>
+        <tr>
+            <th>Cursus</th>
+            <td>{{ factuur.course.name }}</td>
+        </tr>
+        <tr>
+            <th>Bedrag</th>
+            <td>{{ factuur.course.price }}</td>
+        </tr>
+        <tr>
+            <th>User</th>
+            <td>{{ factuur.user.username }}</td>
+        </tr>
         </tbody>
     </table>
 
@@ -38,7 +37,7 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

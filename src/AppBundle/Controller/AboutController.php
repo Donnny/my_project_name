@@ -39,6 +39,25 @@ class AboutController extends Controller
      * @Route("/new", name="about_new")
      * @Method({"GET", "POST"})
      */
+    public function newAction(Request $request)
+    {
+        $about = new About();
+        $form = $this->createForm('AppBundle\Form\AboutType', $about);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($about);
+            $em->flush($about);
+
+            return $this->redirectToRoute('about_index', array('id' => $about->getId()));
+        }
+
+        return $this->render('about/new.html.twig', array(
+            'about' => $about,
+            'form' => $form->createView(),
+        ));
+    }
 
 
 
